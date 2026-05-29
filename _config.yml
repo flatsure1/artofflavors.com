@@ -1,0 +1,33 @@
+title: Art of Flavors
+description: French mastery, Asian finesse — elevated recipes for the passionate home cook.
+url: https://www.artofflavors.com
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+# Collections — new content created via the CMS
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:slug/
+
+# Default layouts for collection items
+defaults:
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: recipe
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - GITHUB-SETUP.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
