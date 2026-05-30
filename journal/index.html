@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,83 +39,21 @@
     <h2 class="section-title">Stories from <em>the Kitchen</em></h2>
 
     <div class="blog-grid">
+      {% for post in site.posts %}
       <article class="blog-card">
-        <div class="blog-card-img">🍷</div>
+        <div class="blog-card-img">{{ post.emoji | default: "🍴" }}</div>
         <div class="blog-card-body">
-          <div class="blog-card-tag">Technique</div>
-          <h2 class="blog-card-title">Why Beurre Blanc Is the Mother of All Butter Sauces</h2>
-          <p class="blog-card-excerpt">Understanding the emulsion behind France's most beloved sauce — and why it's simpler than you think once you know the rules.</p>
+          <div class="blog-card-tag">{{ post.tag }}</div>
+          <h2 class="blog-card-title">{{ post.title }}</h2>
+          <p class="blog-card-excerpt">{{ post.excerpt }}</p>
           <div class="blog-card-footer">
-            <span class="blog-card-date">May 2026</span>
-            <a href="#" class="blog-card-link">Read →</a>
+            <span class="blog-card-date">{{ post.date | date: "%B %Y" }}</span>
+            <a href="{{ post.url }}" class="blog-card-link">Read →</a>
           </div>
         </div>
       </article>
 
-      <article class="blog-card">
-        <div class="blog-card-img">🥢</div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Ingredients</div>
-          <h2 class="blog-card-title">The Miso Pantry: A French Chef's Guide</h2>
-          <p class="blog-card-excerpt">Shiro, aka, mugi — understanding the spectrum of miso and how each type behaves when applied to French cooking techniques.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-date">April 2026</span>
-            <a href="#" class="blog-card-link">Read →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-card-img">🔪</div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Philosophy</div>
-          <h2 class="blog-card-title">Mise en Place is a Mindset, Not a Method</h2>
-          <p class="blog-card-excerpt">The French phrase translates to "everything in its place" — but its true meaning runs deeper than an organized cutting board.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-date">March 2026</span>
-            <a href="#" class="blog-card-link">Read →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-card-img">🦆</div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Technique</div>
-          <h2 class="blog-card-title">The Art of the Perfect Confit</h2>
-          <p class="blog-card-excerpt">Confit is patience incarnate. Here's everything you need to understand about low-temperature fat cooking and why it produces such extraordinary results.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-date">February 2026</span>
-            <a href="#" class="blog-card-link">Read →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-card-img">🍋</div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Ingredients</div>
-          <h2 class="blog-card-title">Yuzu: Japan's Most Misunderstood Citrus</h2>
-          <p class="blog-card-excerpt">Yuzu is not just "Japanese lemon." It's a flavour unto itself — floral, complex, tart — and it transforms dishes in ways lemon simply cannot.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-date">January 2026</span>
-            <a href="#" class="blog-card-link">Read →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-card-img">🌿</div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Kitchen Notes</div>
-          <h2 class="blog-card-title">Building a French-Asian Spice Cabinet</h2>
-          <p class="blog-card-excerpt">The 20 ingredients that sit at the intersection of classical French cuisine and the best of Asian pantries — and how to use each one.</p>
-          <div class="blog-card-footer">
-            <span class="blog-card-date">December 2025</span>
-            <a href="#" class="blog-card-link">Read →</a>
-          </div>
-        </div>
-      </article>
+      {% endfor %}
     </div>
   </section>
 
