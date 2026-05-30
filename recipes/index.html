@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +37,7 @@
   </nav>
   <div class="header-social">
     <a class="social-btn" href="https://youtube.com/@ArtOfFlavors" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
-    <a class="social-btn" href="https://tiktok.com/Aartofflavors" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
+    <a class="social-btn" href="https://tiktok.com/@artofflavors" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
     <a class="social-btn" href="https://facebook.com/ArtOfFlavors" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
   </div>
   <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -120,6 +122,25 @@
       </a>
     </div>
   </section>
+
+  {% if site.recipes.size > 0 %}
+  <section class="recipe-section" style="padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto;">
+    <div class="section-eyebrow">From the CMS</div>
+    <h2 class="section-title">More <em>Recipes</em></h2>
+    <div class="recipe-grid-alt" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;">
+      {% for recipe in site.recipes %}
+      <a class="recipe-card" href="{{ recipe.url }}" aria-label="{{ recipe.title }}">
+        <div class="recipe-card-bg" style="background:linear-gradient(145deg,#2a1f10,#1c1508);">{{ recipe.emoji | default: "🍽" }}</div>
+        <div class="recipe-card-overlay">
+          <div class="recipe-card-tag">{{ recipe.category }}</div>
+          <h2 class="recipe-card-title">{{ recipe.title }}</h2>
+          <p class="recipe-card-desc">{{ recipe.description }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 
   <!-- NEWSLETTER -->
   <section class="newsletter-strip" aria-label="Newsletter signup">
