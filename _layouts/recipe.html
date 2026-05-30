@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — Art of Flavors</title>
+  <meta name="description" content="{{ page.description }}">
+  <link rel="canonical" href="https://www.artofflavors.com/recipes/{{ page.slug }}/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Recipe","name":"{{ page.title }}","description":"{{ page.description }}","prepTime":"{{ page.prep_time }}","cookTime":"{{ page.cook_time }}","recipeYield":"{{ page.serves }}","recipeCuisine":"{{ page.cuisine | default: 'French' }}","recipeCategory":"{{ page.category }}","author":{"@type":"Person","name":"Art of Flavors"},"publisher":{"@type":"Organization","name":"Art of Flavors","url":"https://www.artofflavors.com"}}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" role="banner">
+  <a class="site-branding" href="/" rel="home" aria-label="Art of Flavors — Home">
+    <svg width="40" height="40" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+      <polygon points="22,2 38,8 42,22 38,36 22,42 6,36 2,22 6,8" stroke="#A67C3A" stroke-width="0.8" fill="none"/>
+      <polygon points="22,7 37,22 22,37 7,22" stroke="#A67C3A" stroke-width="0.4" fill="none" opacity="0.4"/>
+      <path d="M11 30 L17 14 L19.5 14 L16.5 22 L21.5 22" stroke="#A67C3A" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13.5 30 L19.5 14" stroke="#A67C3A" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M24.5 30 L24.5 14 L33 14" stroke="#A67C3A" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M24.5 22.5 L31 22.5" stroke="#A67C3A" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div><span class="site-title">Art of Flavors</span><span class="site-tagline">Fine Culinary Arts</span></div>
+  </a>
+  <nav class="main-navigation" role="navigation" aria-label="Primary Navigation">
+    <a href="/">Home</a>
+    <a href="/recipes/" class="active">Recipes</a>
+    <a href="/journal/">Journal</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <div class="header-social" aria-label="Social media links">
+    <a class="social-btn" href="https://youtube.com/@ArtOfFlavors" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+    <a class="social-btn" href="https://tiktok.com/@artofflavors" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
+    <a class="social-btn" href="https://facebook.com/ArtOfFlavors" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+  </div>
+  <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-menu" aria-label="Mobile Navigation">
+  <a href="/">Home</a>
+  <a href="/recipes/">Recipes</a>
+  <a href="/journal/">Journal</a>
+  <a href="/about/">About</a>
+  <a href="/contact/">Contact</a>
+</nav>
+
+<div class="site-content">
+<main id="main-content">
+
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+    <a href="/recipes/">Recipes</a><span class="breadcrumb-sep">›</span>
+    <span>{{ page.title }}</span>
+  </nav>
+
+  <header class="recipe-hero-banner">
+    <div>
+      <div class="recipe-eyebrow"><span style="display:block;width:22px;height:0.5px;background:var(--gold-light);margin-bottom:0.5rem;"></span>{{ page.category }}</div>
+      <h1 class="recipe-hero-title">{{ page.title }}</h1>
+      <p class="recipe-hero-desc">{{ page.description }}</p>
+      <div class="recipe-meta-pills">
+        {% if page.prep_time %}<div class="meta-pill"><span class="meta-label">Prep</span><span class="meta-value">{{ page.prep_time }}</span></div>{% endif %}
+        {% if page.cook_time %}<div class="meta-pill"><span class="meta-label">Cook</span><span class="meta-value">{{ page.cook_time }}</span></div>{% endif %}
+        {% if page.total_time %}<div class="meta-pill"><span class="meta-label">Total</span><span class="meta-value">{{ page.total_time }}</span></div>{% endif %}
+        {% if page.serves %}<div class="meta-pill"><span class="meta-label">Serves</span><span class="meta-value">{{ page.serves }}</span></div>{% endif %}
+        {% if page.level %}<div class="meta-pill"><span class="meta-label">Level</span><span class="meta-value">{{ page.level }}</span></div>{% endif %}
+      </div>
+    </div>
+    <div class="recipe-hero-visual">{{ page.emoji | default: "🍽" }}</div>
+  </header>
+
+  <div class="recipe-body-layout">
+    <div>
+      <div class="post-content" style="margin-bottom:3rem;">
+        {{ content }}
+        {% if page.quote %}
+        <blockquote style="border-left:3px solid var(--gold);padding:1.2rem 2rem;margin:2rem 0;background:var(--bg-alt);">
+          <p style="font-family:var(--font-display);font-size:1.4rem;font-style:italic;color:var(--dark-text);margin:0;">"{{ page.quote }}"</p>
+        </blockquote>
+        {% endif %}
+      </div>
+
+      {% if page.steps %}
+      <div class="steps-section">
+        <h2>The <em>Method</em></h2>
+        {% for step in page.steps %}
+        <div class="step"{% if forloop.last %} style="border-bottom:none;"{% endif %}>
+          <div class="step-num">{{ step.num }}</div>
+          <div>
+            <h3 class="step-title">{{ step.title }}</h3>
+            <p class="step-desc">{{ step.desc }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <aside class="recipe-sidebar">
+      {% if page.ingredients %}
+      <div class="sidebar-card">
+        <div class="sidebar-card-header"><h3>Ingredients</h3></div>
+        <div class="sidebar-card-body">
+          <ul class="ingredient-list">
+            {% for ing in page.ingredients %}
+            <li class="ingredient-item">
+              <span class="ingredient-amount">{{ ing.amount }}</span>
+              <span class="ingredient-name">{{ ing.name }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header"><h3>At a Glance</h3></div>
+        <div class="sidebar-card-body">
+          <div class="at-a-glance-grid">
+            {% if page.total_time %}<div class="glance-stat"><div class="glance-num">{{ page.total_time }}</div><div class="glance-label">Total Time</div></div>{% endif %}
+            {% if page.serves %}<div class="glance-stat"><div class="glance-num">{{ page.serves }}</div><div class="glance-label">Servings</div></div>{% endif %}
+            {% if page.level %}<div class="glance-stat"><div class="glance-num">{{ page.level }}</div><div class="glance-label">Level</div></div>{% endif %}
+            {% if page.cuisine %}<div class="glance-stat"><div class="glance-num">{{ page.cuisine }}</div><div class="glance-label">Cuisine</div></div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% if page.chefs_note %}
+      <div class="sidebar-card">
+        <div class="sidebar-card-header"><h3>Chef's Notes</h3></div>
+        <div class="sidebar-card-body">
+          <p style="font-size:0.97rem;color:var(--mid-text);line-height:2;">{{ page.chefs_note }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </aside>
+  </div>
+
+</main>
+</div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-main">
+    <div class="footer-brand-col">
+      <div class="footer-logo">
+        <svg width="30" height="30" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <polygon points="22,2 38,8 42,22 38,36 22,42 6,36 2,22 6,8" stroke="#C9A05A" stroke-width="0.8" fill="none"/>
+          <path d="M11 30 L17 14 L19.5 14 L16.5 22 L21.5 22" stroke="#C9A05A" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13.5 30 L19.5 14" stroke="#C9A05A" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M24.5 30 L24.5 14 L33 14" stroke="#C9A05A" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24.5 22.5 L31 22.5" stroke="#C9A05A" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="footer-brand">Art of Flavors</span>
+      </div>
+      <p class="footer-tagline">French mastery, Asian finesse — elevated recipes for the passionate home cook.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <div class="footer-links">
+        <a href="/">Home</a><a href="/recipes/">Recipes</a><a href="/journal/">Journal</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <div class="footer-links">
+        <a href="https://youtube.com/@ArtOfFlavors" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://tiktok.com/@artofflavors" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://facebook.com/ArtOfFlavors" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://instagram.com/artofflavors" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Art of Flavors &middot; All rights reserved &middot; <a href="/" style="color:rgba(249,244,236,0.3);text-decoration:none;">artofflavors.com</a></p>
+    <div class="footer-social">
+      <a class="social-btn" href="https://youtube.com/@ArtOfFlavors" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+      <a class="social-btn" href="https://tiktok.com/@artofflavors" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
+      <a class="social-btn" href="https://facebook.com/ArtOfFlavors" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
