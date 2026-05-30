@@ -2,8 +2,8 @@ backend:
   name: github
   repo: flatsure1/artofflavors.com
   branch: main
-  auth_type: pkce
-  app_id: Ov23liKHI1ktV0UPr5uh
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: assets/images/uploads
 public_folder: /assets/images/uploads
