@@ -2,15 +2,12 @@ backend:
   name: github
   repo: flatsure1/artofflavors.com
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  auth_type: pkce
+  app_id: Ov23liKHI1ktV0UPr5uh
 
 media_folder: assets/images/uploads
 public_folder: /assets/images/uploads
 
-# ─────────────────────────────────────────────
-# RECIPES — new recipe pages
-# ─────────────────────────────────────────────
 collections:
   - name: recipes
     label: "🍽 Recipes"
@@ -20,37 +17,34 @@ collections:
     preview_path: "recipes/{{slug}}/"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "string", hint: "e.g. French Classic, Asian Fusion, Patisserie, Dessert, Entrée" }
+      - { label: "Category", name: "category", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Emoji / Icon", name: "emoji", widget: "string", default: "🍽", hint: "A single emoji for the recipe card and hero visual" }
-      - { label: "Prep Time", name: "prep_time", widget: "string", hint: "e.g. 15 min", required: false }
-      - { label: "Cook Time", name: "cook_time", widget: "string", hint: "e.g. 30 min", required: false }
-      - { label: "Total Time", name: "total_time", widget: "string", hint: "e.g. 45 min", required: false }
-      - { label: "Serves", name: "serves", widget: "string", hint: "e.g. 4", required: false }
+      - { label: "Emoji / Icon", name: "emoji", widget: "string", default: "🍽" }
+      - { label: "Prep Time", name: "prep_time", widget: "string", required: false }
+      - { label: "Cook Time", name: "cook_time", widget: "string", required: false }
+      - { label: "Total Time", name: "total_time", widget: "string", required: false }
+      - { label: "Serves", name: "serves", widget: "string", required: false }
       - { label: "Skill Level", name: "level", widget: "select", options: ["Beginner", "Intermediate", "Advanced"], required: false }
       - { label: "Cuisine", name: "cuisine", widget: "string", default: "French", required: false }
-      - { label: "Chef's Quote", name: "quote", widget: "string", required: false, hint: "Optional pull quote displayed in the recipe" }
+      - { label: "Chef’s Quote", name: "quote", widget: "string", required: false }
       - label: "Ingredients"
         name: "ingredients"
         widget: "list"
         required: false
         fields:
-          - { label: "Amount", name: "amount", widget: "string", hint: "e.g. 250g, 3 tbsp, to taste" }
+          - { label: "Amount", name: "amount", widget: "string" }
           - { label: "Ingredient", name: "name", widget: "string" }
       - label: "Steps"
         name: "steps"
         widget: "list"
         required: false
         fields:
-          - { label: "Step Number", name: "num", widget: "string", hint: "e.g. 01, 02, 03" }
+          - { label: "Step Number", name: "num", widget: "string" }
           - { label: "Step Title", name: "title", widget: "string" }
           - { label: "Step Description", name: "desc", widget: "text" }
-      - { label: "Chef's Notes", name: "chefs_note", widget: "text", required: false }
-      - { label: "Introduction / Body", name: "body", widget: "markdown", hint: "Opening paragraphs that appear before the quote and steps" }
+      - { label: "Chef’s Notes", name: "chefs_note", widget: "text", required: false }
+      - { label: "Introduction / Body", name: "body", widget: "markdown" }
 
-# ─────────────────────────────────────────────
-# JOURNAL — blog posts
-# ─────────────────────────────────────────────
   - name: posts
     label: "📓 Journal"
     folder: _posts
@@ -60,7 +54,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Tag", name: "tag", widget: "string", hint: "e.g. Technique, Ingredients, Philosophy" }
-      - { label: "Excerpt", name: "excerpt", widget: "string", hint: "One-sentence summary shown on the journal listing page" }
-      - { label: "Emoji", name: "emoji", widget: "string", default: "🍴", required: false, hint: "Emoji for the post card thumbnail" }
+      - { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Emoji", name: "emoji", widget: "string", default: "🍴", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
