@@ -26,7 +26,7 @@ collections:
       - { label: "Serves", name: "serves", widget: "string", required: false }
       - { label: "Skill Level", name: "level", widget: "select", options: ["Beginner", "Intermediate", "Advanced"], required: false }
       - { label: "Cuisine", name: "cuisine", widget: "string", default: "French", required: false }
-      - { label: "Chef’s Quote", name: "quote", widget: "string", required: false }
+      - { label: "Chef's Quote", name: "quote", widget: "string", required: false }
       - label: "Ingredients"
         name: "ingredients"
         widget: "list"
@@ -42,7 +42,7 @@ collections:
           - { label: "Step Number", name: "num", widget: "string" }
           - { label: "Step Title", name: "title", widget: "string" }
           - { label: "Step Description", name: "desc", widget: "text" }
-      - { label: "Chef’s Notes", name: "chefs_note", widget: "text", required: false }
+      - { label: "Chef's Notes", name: "chefs_note", widget: "text", required: false }
       - { label: "Introduction / Body", name: "body", widget: "markdown" }
 
   - name: posts
